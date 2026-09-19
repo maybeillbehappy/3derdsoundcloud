@@ -7,7 +7,7 @@ public class Interaction : MonoBehaviour
     [Header("Lenght of interaction ray")]
     [SerializeField] float distance;
     InventoryScript inventoryScript;
-    public CinemachineCamera cam;
+    CinemachineCamera cam;
     Vector3 origin;
     Vector3 direction;
     RaycastHit hitInfo;
@@ -31,9 +31,7 @@ public class Interaction : MonoBehaviour
         {
             if (hitInfo.transform.gameObject.tag == "Item")
             {
-                inventoryScript.AddItem(hitInfo.transform.gameObject.name);
-                //hitInfo.transform.gameObject.SetActive(false);
-                Destroy(hitInfo.transform.gameObject);
+                inventoryScript.AddItem(hitInfo.transform.gameObject);
             }
         }
     }
